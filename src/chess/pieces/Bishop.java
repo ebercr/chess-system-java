@@ -8,12 +8,12 @@ import chess.Color;
 public class Bishop extends ChessPiece {
 
     public Bishop(Board board, Color color) {
-        super(board, color);
+        super(board, color);  // Constructor for the Bishop piece
     }
 
     @Override
     public String toString() {
-        return "B";
+        return "B";  // String representation of the Bishop piece
     }
 
     @Override
@@ -22,38 +22,46 @@ public class Bishop extends ChessPiece {
 
         Position p = new Position(0, 0);
 
-        // NorthWest
+        // NW - North-West direction
         p.setValues(position.getRow() - 1, position.getColumn() - 1);
         while (getBoard().positionExists(p) && !getBoard().thereIsPiece(p)) {
             mat[p.getRow()][p.getColumn()] = true;
             p.setValues(p.getRow() - 1, p.getColumn() - 1);
         }
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) mat[p.getRow()][p.getColumn()] = true;
+        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) {
+            mat[p.getRow()][p.getColumn()] = true;
+        }
 
-        // NorthEast
+        // NE - North-East direction
         p.setValues(position.getRow() - 1, position.getColumn() + 1);
         while (getBoard().positionExists(p) && !getBoard().thereIsPiece(p)) {
             mat[p.getRow()][p.getColumn()] = true;
             p.setValues(p.getRow() - 1, p.getColumn() + 1);
         }
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) mat[p.getRow()][p.getColumn()] = true;
-
-        // SouthWest
-        p.setValues(position.getRow() + 1, position.getColumn() - 1);
-        while (getBoard().positionExists(p) && !getBoard().thereIsPiece(p)) {
+        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) {
             mat[p.getRow()][p.getColumn()] = true;
-            p.setValues(p.getRow() + 1, p.getColumn() - 1);
         }
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) mat[p.getRow()][p.getColumn()] = true;
 
-        // SouthEast
+        // SE - South-East direction
         p.setValues(position.getRow() + 1, position.getColumn() + 1);
         while (getBoard().positionExists(p) && !getBoard().thereIsPiece(p)) {
             mat[p.getRow()][p.getColumn()] = true;
             p.setValues(p.getRow() + 1, p.getColumn() + 1);
         }
-        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) mat[p.getRow()][p.getColumn()] = true;
+        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) {
+            mat[p.getRow()][p.getColumn()] = true;
+        }
 
-        return mat;
+        // SW - South-West direction
+        p.setValues(position.getRow() + 1, position.getColumn() - 1);
+        while (getBoard().positionExists(p) && !getBoard().thereIsPiece(p)) {
+            mat[p.getRow()][p.getColumn()] = true;
+            p.setValues(p.getRow() + 1, p.getColumn() - 1);
+        }
+        if (getBoard().positionExists(p) && isThereOpponentPiece(p)) {
+            mat[p.getRow()][p.getColumn()] = true;
+        }
+
+        return mat;  // Returns the possible moves for the Bishop piece
     }
 }

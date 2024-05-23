@@ -8,7 +8,7 @@ public class ChessException extends BoardException {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public ChessException(String message) {
-        super(message);
+    public ChessException(String msg) {
+        super(msg);  // Constructor for chess-specific exceptions
     }
 }
